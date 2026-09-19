@@ -1,239 +1,408 @@
 # 🛡️ CivicShield AI
 
-## Intelligent Citizen Grievance & Smart Government Routing System
+## Anonymous Citizen Grievance & Smart Government Routing System
 
-CivicShield AI is an AI-powered civic complaint management platform designed to make it easier for citizens to report public issues and for authorities to manage, classify, prioritize, and track those complaints efficiently.
+CivicShield AI is an AI-powered civic complaint management platform designed to make reporting public issues simpler, smarter, and more organized.
 
-The platform combines a modern React frontend, Java Spring Boot backend, PostgreSQL database, JWT-based authentication, and local AI/NLP capabilities to create a practical smart-government solution.
+The platform allows citizens to report civic problems such as road damage, potholes, garbage, street-light issues, water leakage, drainage problems, and other public-service concerns.
+
+The system uses AI to analyze complaints and assist in determining the appropriate **department, priority, and complaint summary**, helping authorities process civic issues more efficiently.
 
 ---
 
 ## 🚀 Project Overview
 
-Citizens can submit complaints related to common civic problems such as:
+CivicShield AI combines:
 
-- 🕳️ Potholes and road damage
-- 🗑️ Garbage and waste management
-- 💡 Street light issues
-- 💧 Water leakage
-- 🌊 Drainage problems
-- 🚦 Traffic-related issues
-- 🏥 Public health concerns
-- 🛣️ Other infrastructure-related problems
+- 🤖 Artificial Intelligence
+- 🌐 Full-Stack Web Development
+- 🔐 JWT Authentication
+- 🏛️ Role-Based Access
+- 📊 Complaint Management
+- 🗄️ PostgreSQL Database
+- 🔌 REST APIs
 
-Each complaint can be tracked using a unique tracking token, while authorities can access and manage complaints based on their role.
-
-The system also uses AI to analyze complaint information and assist with classification, prioritization, department routing, and complaint summarization.
+The goal is to create a centralized platform where citizens can submit complaints and authorities can manage, classify, and update them through a structured workflow.
 
 ---
 
-## ✨ Key Features
+# ✨ Key Features
 
-### 👤 Citizen Features
+## 👤 Citizen Portal
 
-- Citizen registration and login
-- Secure JWT-based authentication
-- Anonymous civic complaint submission
-- Complaint category selection
-- Complaint tracking using a unique tracking token
-- My Complaints dashboard
-- Complaint status tracking
-- Complaint details and history
-- Responsive user interface
+### 🔐 Registration & Login
+Citizens can create an account and securely log into the platform.
 
-### 🏛️ Authority Features
+### 📝 Submit Complaints
+Citizens can submit civic complaints with:
 
-- Secure authority login
-- Role-based access
-- View submitted complaints
-- Analyze complaint details
-- Manage complaint status
-- Department-based complaint handling
-- Priority-based complaint management
+- Complaint title
+- Detailed description
+- Optional image
+- Location information
 
-### 🤖 AI-Powered Features
+### 📋 My Complaints
 
-CivicShield AI integrates AI/NLP capabilities to assist with:
+Citizens can view complaints submitted by their account, including:
 
-- Complaint analysis
-- Complaint categorization
-- Priority identification
-- Department routing
-- Complaint summarization
-- Understanding the context of citizen complaints
+- Complaint title
+- Description
+- Tracking token
+- Department
+- Priority
+- Status
+- Submission date
+- Last updated date
+- AI-generated summary
 
-The project currently uses a local AI setup through **Ollama** and the **Llama 3.2** model.
+### 🔎 Complaint Tracking
 
----
+Every complaint receives a unique tracking token.
 
-## 🔄 How the System Works
+Citizens can use the token to check the current complaint status.
+
+Example:
 
 ```text
-Citizen
-   ↓
-Register / Login
-   ↓
-Submit Civic Complaint
-   ↓
-Complaint Stored in PostgreSQL
-   ↓
-AI Analysis
-   ↓
-Category + Priority + Department
-   ↓
-Authority Dashboard
-   ↓
-Complaint Processing
-   ↓
-Status Updates
-   ↓
-Citizen Tracks Complaint
+CS-ADBB9300
 
+📊 Complaint Status
 
-🧠 AI Workflow
+Complaints can move through different stages:
 
-The AI component is designed to understand the complaint submitted by a citizen and assist the system in deciding:
+PENDING
+     ↓
+IN_PROGRESS
+     ↓
+RESOLVED
+🏛️ Authority Portal
 
-Complaint Text
-      ↓
-AI Analysis
-      ↓
-Complaint Understanding
-      ↓
-Category Identification
-      ↓
-Priority Identification
-      ↓
-Department Routing
-      ↓
-Complaint Summary
+Authorities can manage complaints assigned to their department.
 
-This helps reduce manual classification and provides a structured way to process civic complaints.
+The authority dashboard provides functionality for:
 
+Viewing complaints
+Filtering complaints
+Viewing complaint details
+Checking priority
+Updating complaint status
+Monitoring department-level complaints
+Viewing dashboard statistics
+🤖 AI-Powered Complaint Analysis
 
+One of the core features of CivicShield AI is AI-assisted complaint analysis.
+
+When a citizen submits a complaint, the system can analyze the complaint content and generate structured information such as:
+
+🏛️ Department Classification
+
+The complaint can be classified into an appropriate department.
+
+Examples:
+
+WOMEN_SAFETY
+PUBLIC_WORKS
+MUNICIPAL
+ELECTRICITY
+HEALTH
+🚩 Priority Classification
+
+The system can determine the urgency of a complaint.
+
+Examples:
+
+CRITICAL
+HIGH
+NORMAL
+📝 AI Summary
+
+The complaint can also be summarized into a concise description that helps authorities quickly understand the reported issue.
+
+🧠 AI-Assisted Development
+
+AI was also used as a development assistant during the creation of CivicShield AI.
+
+AI-assisted development was used for:
+
+💡 Exploring implementation ideas
+🎨 UI/UX improvements
+🐛 Debugging
+🔍 Problem solving
+🧩 Code assistance
+🔄 Iterative development
+📚 Understanding unfamiliar concepts
+✨ Improving the overall user experience
+
+At the same time, AI/NLP is incorporated directly into the application for complaint analysis.
+
+This project helped demonstrate how AI can be used both during software development and inside a real-world application.
 
 🏗️ System Architecture
                     ┌──────────────────────┐
-                    │      Citizen         │
-                    │   React Frontend     │
+                    │       Citizen        │
                     └──────────┬───────────┘
                                │
                                ▼
                     ┌──────────────────────┐
-                    │    Spring Boot      │
-                    │    REST Backend     │
+                    │    React Frontend    │
+                    │      User Portal      │
                     └──────────┬───────────┘
                                │
-              ┌────────────────┼────────────────┐
-              │                │                │
-              ▼                ▼                ▼
-       ┌─────────────┐  ┌──────────────┐  ┌─────────────┐
-       │ PostgreSQL  │  │ JWT Security │  │  AI / NLP   │
-       │  Database   │  │ Authentication│  │   Ollama    │
-       └─────────────┘  └──────────────┘  └─────────────┘
-                                                │
-                                                ▼
-                                         ┌─────────────┐
-                                         │ Llama 3.2   │
-                                         └─────────────┘
+                          REST APIs
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   Spring Boot API    │
+                    │      Backend         │
+                    └──────────┬───────────┘
+                               │
+             ┌─────────────────┼─────────────────┐
+             │                 │                 │
+             ▼                 ▼                 ▼
+       ┌───────────┐    ┌──────────────┐   ┌─────────────┐
+       │ PostgreSQL│    │ AI Analysis  │   │ JWT Security│
+       │ Database  │    │    Layer     │   │             │
+       └───────────┘    └──────┬───────┘   └─────────────┘
+                                │
+                                ▼
+                         ┌─────────────┐
+                         │ Local Ollama│
+                         │   LLM       │
+                         └─────────────┘
 🛠️ Technology Stack
 Frontend
 React.js
-Vite
 JavaScript
-HTML5
-CSS3
-Responsive UI
+HTML
+CSS
+Vite
 Backend
 Java
 Spring Boot
-Spring REST APIs
-JWT Authentication
-Role-Based Access Control
+Spring Data JPA
+REST APIs
+Maven
 Database
 PostgreSQL
+Hibernate / JPA
 AI / NLP
+Local AI integration
 Ollama
 Llama 3.2
-AI-assisted complaint analysis
+Security
+JWT Authentication
+Role-Based Authorization
 Development Tools
 IntelliJ IDEA
 Visual Studio Code
 Postman
 Git
 GitHub
-📁 Project Structure
+📂 Project Structure
 civicshield-ai/
 │
 ├── civicshield-backend/
 │   │
 │   ├── src/
-│   │   └── main/
-│   │       ├── java/
-│   │       │   └── ...
-│   │       └── resources/
-│   │           └── application.properties
+│   │   ├── main/
+│   │   │   ├── java/
+│   │   │   │   └── com/
+│   │   │   │       └── civicshield/
+│   │   │   │
+│   │   │   │           ├── ai/
+│   │   │   │           ├── controller/
+│   │   │   │           ├── dto/
+│   │   │   │           ├── entity/
+│   │   │   │           ├── exception/
+│   │   │   │           ├── repository/
+│   │   │   │           ├── security/
+│   │   │   │           └── service/
+│   │   │   │
+│   │   │   └── resources/
+│   │   │       └── application.properties
+│   │   │
+│   │   └── test/
 │   │
 │   └── pom.xml
 │
 ├── civicshield-frontend/
 │   │
+│   ├── public/
 │   ├── src/
 │   │   ├── components/
 │   │   ├── pages/
 │   │   ├── services/
-│   │   └── ...
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   └── main.jsx
 │   │
 │   ├── package.json
 │   └── vite.config.js
 │
 └── README.md
+🔄 Complaint Workflow
+Citizen
+   │
+   ▼
+Register / Login
+   │
+   ▼
+Submit Complaint
+   │
+   ▼
+Complaint Stored
+   │
+   ▼
+AI Analysis
+   │
+   ├── Department
+   ├── Priority
+   └── Summary
+   │
+   ▼
+Complaint Tracking Token Generated
+   │
+   ▼
+Authority Reviews Complaint
+   │
+   ▼
+Status Updated
+   │
+   ▼
+Citizen Tracks Complaint
+🔐 Security
+
+CivicShield AI uses JWT-based authentication to protect application endpoints.
+
+The application also uses role-based access control.
+
+Citizen
+CITIZEN
+
+Citizens can:
+
+Submit complaints
+View their complaints
+Track complaints
+Authority
+AUTHORITY
+
+Authorities can:
+
+View department complaints
+Manage complaints
+Update complaint status
+Monitor complaint statistics
+📍 Location-Based Complaints
+
+The project is being enhanced to support location-based complaint reporting.
+
+The planned workflow is:
+
+Citizen submits complaint
+        ↓
+Browser requests location permission
+        ↓
+Latitude & Longitude obtained automatically
+        ↓
+Location stored with complaint
+        ↓
+Complaint displayed on map
+
+This will allow citizens to report the location of an issue without manually entering latitude and longitude values.
+
+📊 Dashboard
+
+The system provides dashboards for different user roles.
+
+Citizen Dashboard
+Submit Complaint
+        │
+        ├── Track Complaint
+        │
+        └── My Complaints
+Authority Dashboard
+Complaint Statistics
+        │
+        ├── Department
+        ├── Priority
+        ├── Status
+        └── Complaint Management
+🧪 API Testing
+
+REST APIs were tested using Postman during development.
+
+Example API endpoints:
+
+POST   /api/auth/register
+POST   /api/auth/login
+
+POST   /api/complaints
+GET    /api/complaints/my
+GET    /api/complaints/all
+GET    /api/complaints/{trackingToken}
+
+PUT    /api/complaints/{id}/status
+
+GET    /api/complaints/dashboard/stats
 ⚙️ Local Setup
+Prerequisites
+
+Make sure the following are installed:
+
+Java 21+
+Maven
+PostgreSQL
+Node.js
+npm
+Ollama
+Git
 1️⃣ Clone the Repository
 git clone https://github.com/shaiksaidabi/civicshield-AI-Civic-Complaint-Management-System.git
-cd civicshield-ai
-2️⃣ Database Setup
+cd civicshield-AI-Civic-Complaint-Management-System
+2️⃣ Configure PostgreSQL
 
-Install PostgreSQL and create a database named:
+Create a PostgreSQL database:
 
-civicshield
+CREATE DATABASE civicshield;
 
-Configure the database connection in the backend configuration.
+Update the backend database configuration according to your local PostgreSQL setup.
 
-For security, use your own local database credentials and avoid committing real passwords or secrets to GitHub.
+⚠️ Do not commit real database passwords, API keys, tokens, or other secrets to GitHub.
 
 3️⃣ Setup Ollama
 
-Install Ollama and make sure it is running locally.
+Install Ollama and make sure the required model is available locally.
 
-Pull the required model:
+Example:
 
 ollama pull llama3.2
 
-Ollama runs locally and is used by CivicShield AI for AI-powered complaint analysis.
+Start Ollama if required:
 
-▶️ Running the Backend
+ollama serve
 
-Open a terminal inside:
+The application expects the local Ollama service at:
 
-civicshield-backend
+http://localhost:11434
+4️⃣ Run the Backend
 
-On Windows:
+Open a terminal:
 
-.\mvnw.cmd spring-boot:run
+cd civicshield-backend
+
+Run:
+
+mvn spring-boot:run
 
 The backend runs on:
 
 http://localhost:8080
+5️⃣ Run the Frontend
 
-API base URL:
+Open another terminal:
 
-http://localhost:8080/api
-▶️ Running the Frontend
-
-Open another terminal inside:
-
-civicshield-frontend
+cd civicshield-frontend
 
 Install dependencies:
 
@@ -243,124 +412,92 @@ Start the development server:
 
 npm run dev
 
-Then open the URL displayed by Vite in your browser.
+The frontend will normally be available at:
 
-🔐 Security
+http://localhost:5173
+🧪 Current Project Status
+✅ Completed
+ Citizen registration
+ Citizen login
+ Authority login
+ JWT authentication
+ Role-based access
+ Complaint submission
+ Complaint tracking
+ My Complaints dashboard
+ Complaint status management
+ Department classification
+ Priority classification
+ AI complaint analysis
+ AI-generated complaint summary
+ React frontend
+ Spring Boot backend
+ PostgreSQL integration
+ REST API integration
+ Postman API testing
+ Git/GitHub version control
+🚧 Future Enhancements
 
-CivicShield AI includes security mechanisms such as:
+CivicShield AI is actively under development.
 
-JWT-based authentication
-Role-based access control
-Protected API endpoints
-Secure citizen and authority access
-Separation of citizen and authority functionality
+Planned improvements include:
 
-Sensitive credentials and API secrets should always be stored locally or through environment variables rather than being committed to the public repository.
+ 🗺️ Interactive complaint map
+ 📍 Automatic location detection
+ 📌 Map-based complaint locations
+ 📷 Improved image handling
+ 🔔 Complaint status notifications
+ 📊 Advanced analytics dashboard
+ 📈 Complaint trend visualization
+ 🤖 Improved AI classification
+ 🧠 More advanced NLP processing
+ 🔎 Advanced complaint filtering
+ 📱 Improved mobile responsiveness
+ ☁️ Cloud deployment
+ 🚀 Production-ready deployment
+🎯 Project Goals
 
-📡 API Overview
+The long-term goal of CivicShield AI is to build a practical civic technology platform that can:
 
-The application exposes REST APIs for major operations such as:
+Make civic issue reporting easier
+Reduce manual complaint classification
+Help route complaints to appropriate departments
+Provide transparent complaint tracking
+Use AI to assist authorities in processing complaints
+Provide location-aware civic issue management
+📸 Project Screenshots
 
-POST   /api/auth/register
-POST   /api/auth/login
-
-POST   /api/complaints
-GET    /api/complaints/my
-GET    /api/complaints/{trackingToken}
-
-Additional APIs are used for authority operations, complaint management, authentication, and AI-powered processing.
-
-🤖 AI-Assisted Development
-
-AI has been used in this project in two different ways.
-
-1. AI as a Development Assistant
-
-AI tools were used during development for:
-
-Exploring project ideas
-Designing application workflows
-UI/UX improvements
-Debugging
-Problem solving
-Code assistance
-Understanding errors
-Iterating on features
-2. AI Inside the Application
-
-AI is also a core part of CivicShield AI itself.
-
-The application uses local AI/NLP capabilities to assist with:
-
-Complaint understanding
-Classification
-Priority identification
-Department routing
-Complaint summarization
-
-This makes AI not only a development tool, but also an important component of the actual application.
-
-📍 Future Enhancements
-
-The project is continuously being improved.
-
-Planned enhancements include:
-
-🗺️ Interactive map-based complaint location selection
-📍 Automatic latitude and longitude capture
-📸 Image upload for complaint evidence
-🔔 Complaint status notifications
-📊 Advanced authority analytics
-📈 Complaint trend dashboards
-🤖 Improved AI-based classification
-🔎 Advanced complaint search and filtering
-📱 Further mobile responsiveness improvements
-🎯 Project Goal
-
-The main goal of CivicShield AI is to demonstrate how modern technologies such as:
-
-Java + Spring Boot + React + PostgreSQL + JWT + AI/NLP
-
-can be combined to build a practical civic technology platform.
-
-The project focuses on improving the way civic complaints can be submitted, understood, routed, managed, and tracked.
-
-🌟 Why CivicShield AI?
-
-Traditional complaint systems can require citizens to manually identify departments and provide structured information.
-
-CivicShield AI aims to simplify this process by allowing citizens to describe their problems naturally while using AI to assist with organizing and routing the complaint.
-
-Citizen's Problem
-       ↓
-Natural Complaint
-       ↓
-AI Understanding
-       ↓
-Category
-       ↓
-Priority
-       ↓
-Department
-       ↓
-Authority Action
-       ↓
-Citizen Tracking
-
-
-📌 Project Status
-
-🚧 Actively developing and improving
-
-New features, UI improvements, AI capabilities, and usability enhancements are being added as the project evolves.
+Screenshots of the application will be added here as the project continues to evolve.
 
 👨‍💻 Developer
 
 Shaik Saidabi
 
-GitHub:
+B.Tech Computer Science Graduate
+
+Interested in:
+
+Java Development
+Spring Boot
+Full-Stack Development
+Artificial Intelligence
+NLP
+Backend Development
+Software Engineering
+Connect
+
+🔗 LinkedIn:
+https://www.linkedin.com/in/shaiksaidabi
+
+💻 GitHub:
 https://github.com/shaiksaidabi
 
-Project Repository:
-https://github.com/shaiksaidabi/civicshield-AI-Civic-Complaint-Management-System
+⭐ Support
 
+If you find this project interesting, consider giving the repository a ⭐ on GitHub.
+
+📌 Note
+
+CivicShield AI is an educational and portfolio project currently under active development.
+
+The AI-generated classifications and summaries are intended to assist complaint processing and should not be treated as a replacement for human decision-making by government authorities.
